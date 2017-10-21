@@ -38,4 +38,4 @@ function test_deep_json {
   deep_json_array $n | $parser 2>/dev/null >/dev/null
 }
 
-dichotomic_search test_deep_json 1 10000
+dichotomic_search test_deep_json 1 100000
