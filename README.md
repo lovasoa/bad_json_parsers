@@ -20,7 +20,7 @@ This repository contains a script called [test_parser.sh](test_parser.sh) that t
 
 The json parser must be a program that reads JSON on its standard input, and exits with a status of 0 if it managed to parse it and any other status if an error occured.
 
-## How it workd 
+## How it works
 
 [test_parser.sh](test_parser.sh) constructs json structures composed uniquely of nested arrays, and gives them to the program it tests. For instance, for a depth of 3, it builds the following json : `[[[]]]`. This allows to create a structure of only *2n* bytes that has *n* nesting levels.
 It uses [binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm) to find the smallest structure for which the programm fails.
