@@ -29,10 +29,11 @@ It uses [binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm) t
 
 On my machine (Ubuntu Linux 4.10.0-35-generic SMP x86_64 with 8Gb RAM), I found the following results:
 
-language | json library                                                | nesting level | size of the JSON structure   |
--------- | ----------------------------------------------------------- | ------------- | ---------------------------- |
-ruby     | [json](https://rubygems.org/gems/json/versions/1.8.3)       | 101           | 202 bytes                    |
-python   | [json](https://docs.python.org/3/library/json.html)         | 994           | 2.0 kb                       | 
-java     | [Gson](https://github.com/google/gson)                      | 5670          | 11.3 kb                      |
-JS       | `JSON.decode`                                               | 5713          | 11.4 kb                      |
+language   | json library                                                | nesting level | size of the JSON file   |
+---------- | ----------------------------------------------------------- | ------------- | ----------------------- |
+ruby       | [json](https://rubygems.org/gems/json/versions/1.8.3)       | 101           | 202 bytes               |
+python     | [json](https://docs.python.org/3/library/json.html)         | 994           | 2.0 kb                  | 
+java       | [Gson](https://github.com/google/gson)                      | 5670          | 11.3 kb                 |
+javascript | `JSON.decode`                                               | 5713          | 11.4 kb                 |
+C++        | [nlohmann::json](https://github.com/nlohmann/json)          | 13787         | 27.6 kb                 |
 
