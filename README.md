@@ -32,6 +32,7 @@ On my machine (Ubuntu Linux 4.10.0-35-generic SMP x86_64 with 8Gb RAM), I found 
 language   | json library                                                | nesting level | size of the JSON file   | notes                         |
 ---------- | ----------------------------------------------------------- | ------------- | ----------------------- | ----------------------------- |
 ruby       | [json](https://rubygems.org/gems/json/versions/1.8.3)       | 101           | 202 bytes               |
+rust       | [serde_json](https://docs.serde.rs/serde_json/)             | 128           | 256 bytes               |
 php        | `json_decode`                                               | 512           | 1024 bytes              | maximum depth is configurable |
 python     | [json](https://docs.python.org/3/library/json.html)         | 994           | 2.0 kb                  | without sys.setrecursionlimit
 java       | [Gson](https://github.com/google/gson)                      | 5670          | 11.3 kb                 |
