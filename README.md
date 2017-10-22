@@ -1,12 +1,14 @@
-# bad_json_parsers
+# Bad JSON parsers
+
 Exposing problems in json parsers of several programming languages.
 
 ## Introduction
 
-Many JSON parsers (and many parsers in general) use recursion to parse nested JSON structure.
+Many JSON parsers (and many parsers in general) use [recursion](https://en.wikipedia.org/wiki/Recursion_(computer_science))
+to parse nested structures.
 This is very convenient while programming the parser, but it has consequenses on what the parser can parse:
-indeed, the stack trace is usually limited to a value much smaller than the available RAM, and this implies
-that a program with too many levels of recursion will fail.
+indeed, the size of the [call stack](https://en.wikipedia.org/wiki/Call_stack) is usually limited to a value several orders of magnitude smaller
+than the available RAM, and this implies that a program with too many levels of recursion will fail.
 
 However, the [JSON specification](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)
 doesn't contain any limit on how deeply nested JSON structures can be.
