@@ -38,7 +38,7 @@ python     | [json](https://docs.python.org/3/library/json.html)         | 994  
 java       | [Gson](https://github.com/google/gson)                      | 5670          | 11.3 kb       |
 javascript | `JSON.decode`                                               | 5713          | 11.4 kb       |
 C++        | [nlohmann::json](https://github.com/nlohmann/json)          | 13787         | 27.6 kb       | segfault
-Haskell    | [Aeson](https://hackage.haskell.org/package/aeson)          | ∞             | ∞             | Supports any nesting level
+Haskell    | [Aeson](https://hackage.haskell.org/package/aeson)          | ∞             | ∞             | available RAM is the only limit
 
 
 ## Remarks
