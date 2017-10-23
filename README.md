@@ -40,7 +40,7 @@ php        | `json_decode`                                               | 512  
 python3    | [json](https://docs.python.org/3/library/json.html)         | 994           | 2.0 KB        | without sys.setrecursionlimit
 C          | [jansson](https://jansson.readthedocs.io/)                  | 2049          | 4.0 KB        | 
 java       | [Gson](https://github.com/google/gson)                      | 5670          | 11.3 KB       |
-javascript | `JSON.decode`                                               | 5713          | 11.4 KB       |
+javascript | `JSON.parse`                                               | 5713          | 11.4 KB       |
 C++        | [nlohmann::json](https://github.com/nlohmann/json)          | 13787         | 27.6 KB       | segfault
 Haskell    | [Aeson](https://hackage.haskell.org/package/aeson)          | ∞             | ∞             | available RAM is the only limit
 
