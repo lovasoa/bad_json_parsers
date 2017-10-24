@@ -42,6 +42,7 @@ C          | [jansson](https://jansson.readthedocs.io/)                  | 2049 
 java       | [Gson](https://github.com/google/gson)                      | 5670          | 11.3 KB       |
 javascript | `JSON.parse`                                               | 5713          | 11.4 KB       |
 C++        | [nlohmann::json](https://github.com/nlohmann/json)          | 13787         | 27.6 KB       | segfault
+ruby       | [Oj](https://github.com/ohler55/oj)                         | ∞             | ∞             |
 Haskell    | [Aeson](https://hackage.haskell.org/package/aeson)          | ∞             | ∞             | available RAM is the only limit
 
 
