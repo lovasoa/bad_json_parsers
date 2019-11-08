@@ -6,3 +6,10 @@ matrix:
 
     - language: ruby
       script: ./test_parser.sh ruby parser_ruby.rb
+
+    - language: csharp
+      mono: latest
+      script:
+        - msbuild parser_dotnet/parser_dotnet.csproj
+        - ./test_parser.sh parser_dotnet/Release/parser_dotnet
+  
