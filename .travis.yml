@@ -23,7 +23,8 @@ matrix:
 
 
     # nim
-    - language: c
+    - language: minimal
+ 	    dist: bionic
       install:
         - sudo apt-get -y install nim
       script:
