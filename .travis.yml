@@ -1,6 +1,7 @@
 matrix:
   include:
     - language: perl
+      perl: 5.30
       script: ./test_parser.sh perl parser_perl.pl
 
     - language: python
