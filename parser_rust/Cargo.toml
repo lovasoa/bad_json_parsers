@@ -4,4 +4,6 @@ version = "0.1.0"
 authors = ["Ophir LOJKINE <pere.jobs@gmail.com>"]
 
 [dependencies]
-serde_json = "1.0"
+serde_json = {version = "1.0", features = ["unbounded_depth"] }
+serde = "1.0"
+serde_stacker = "0.1"
