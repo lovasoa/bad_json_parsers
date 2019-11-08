@@ -2,6 +2,8 @@
 [![Build Status](https://travis-ci.org/lovasoa/bad_json_parsers.svg?branch=master)](https://travis-ci.org/lovasoa/bad_json_parsers)
 
 Exposing problems in json parsers of several programming languages.
+The name of this repository is intentionally provocative.
+It's goal is to document limitations of existing json parsers, not to denigrate the work of the many contributors who worked on the various libraries presented here.
 
 ## Introduction
 
