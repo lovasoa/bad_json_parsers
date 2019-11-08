@@ -3,7 +3,7 @@ matrix:
     - language: perl
       script: ./test_parser.sh perl parser_perl.pl
 
-- language: python
+    - language: python
       python: 3.8
       script: ./test_parser.sh python parser_python.py
 
