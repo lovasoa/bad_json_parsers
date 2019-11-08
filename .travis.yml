@@ -8,9 +8,8 @@ matrix:
       script: ./test_parser.sh ruby parser_ruby.rb
 
     - language: go
-      script:
-        - go build parser_go.go
-        - ./test_parser.sh ./parser_go
+      install: go build parser_go.go
+      script: ./test_parser.sh ./parser_go
 
     # nim
     - language: c
