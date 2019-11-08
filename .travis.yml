@@ -8,7 +8,7 @@ matrix:
       script: ./test_parser.sh ruby parser_ruby.rb
 
     - language: node_js
-      node_js: "12"
+      node_js: "8"
       script: ./test_parser.sh node parser_javascript.js
 
     # nim
