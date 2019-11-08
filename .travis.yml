@@ -7,6 +7,9 @@ matrix:
     - language: ruby
       script: ./test_parser.sh ruby parser_ruby.rb
 
+    - language: go
+      script: ./test_parser.sh go run parser_go/main.go
+
     # nim
     - language: c
       os: linux
