@@ -1,4 +1,5 @@
 # Bad JSON parsers
+[![Build Status](https://travis-ci.org/lovasoa/bad_json_parsers.svg?branch=master)](https://travis-ci.org/lovasoa/bad_json_parsers)
 
 Exposing problems in json parsers of several programming languages.
 
