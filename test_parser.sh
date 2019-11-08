@@ -14,4 +14,4 @@ function test_deep_json {
 export -f test_deep_json
 export json_parsing_command
 
-./utils/binary_search.sh test_deep_json 1 100000
+./utils/binary_search.sh test_deep_json 1 500000
