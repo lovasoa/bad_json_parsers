@@ -7,6 +7,9 @@ matrix:
     - language: ruby
       script: ./test_parser.sh ruby parser_ruby.rb
 
+    - language: node_js
+      script: ./test_parser.sh node parser_javascript.js
+
     # nim
     - language: c
       os: linux
