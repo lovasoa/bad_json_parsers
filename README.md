@@ -9,7 +9,7 @@ Its goal is to document limitations of existing json parsers, not to denigrate t
 
 Many JSON parsers (and many parsers in general) use [recursion](https://en.wikipedia.org/wiki/Recursion_(computer_science))
 to parse nested structures.
-This is very convenient while programming the parser, but it has consequenses on what the parser can parse:
+This is very convenient while programming the parser, but it has consequences on what the parser can parse:
 indeed, the size of the [call stack](https://en.wikipedia.org/wiki/Call_stack) is usually limited to a value several orders of magnitude smaller
 than the available RAM, and this implies that a program with too many levels of recursion will fail.
 
@@ -23,12 +23,12 @@ This repository contains tools to measure the limits of JSON parsers of differen
 
 This repository contains a script called [test_parser.sh](test_parser.sh) that takes a JSON parser and uses [binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm) to find the smallest JSON structure it fails to parse and print its nesting level.
 
-The json parser must be a program that reads JSON on its standard input, and exits with a status of 0 if it managed to parse it and any other status if an error occured.
+The json parser must be a program that reads JSON on its standard input, and exits with a status of 0 if it managed to parse it and any other status if an error occurred.
 
 ## How it works
 
 [test_parser.sh](test_parser.sh) constructs json structures composed uniquely of nested arrays, and gives them to the program it tests. For instance, for a depth of 3, it builds the following json : `[[[]]]`. This allows to create a structure of only *2n* bytes that has *n* nesting levels.
-It uses [binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm) to find the smallest structure for which the programm fails.
+It uses [binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm) to find the smallest structure for which the program fails.
 
 ## Results
 
@@ -56,6 +56,6 @@ Haskell    | [Aeson](https://hackage.haskell.org/package/aeson)          | ∞  
 I tried to test the most popular json library of each language. If you want to add a new language or a new library,
 feel free to open a pull request.
 
-All the parameters were left to their defaut values. In particular, the result
+All the parameters were left to their default values. In particular, the result
 for PHP is particular: `json_decode` accepts a `depth` parameter to configure
 the maximum depth of the object to be parsed.
