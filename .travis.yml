@@ -1,0 +1,8 @@
+matrix:
+  include:
+    - language: python
+      python: 3.8
+      script: ./test_parser.sh python parser_python.py
+
+    - language: ruby
+      script: ./test_parser.sh ruby parser_ruby.rb
