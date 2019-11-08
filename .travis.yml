@@ -24,15 +24,8 @@ matrix:
 
     # nim
     - language: c
-      os: linux
-      compiler: gcc
       install:
-        - export CHOOSENIM_NO_ANALYTICS=1
-        - curl https://nim-lang.org/choosenim/init.sh -sSf > init.sh
-        - sh init.sh -y
-        - export PATH=~/.nimble/bin:$PATH
-        - echo "export PATH=~/.nimble/bin:$PATH" >> ~/.profile
-        - choosenim stable
+        - sudo apt-get -y install nim
       script:
         - nim c -d:release parser_nim.nim
         - ./test_parser.sh ./parser_nim
