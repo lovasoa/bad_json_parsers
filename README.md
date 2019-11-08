@@ -3,7 +3,7 @@
 
 Exposing problems in json parsers of several programming languages.
 The name of this repository is intentionally provocative.
-It's goal is to document limitations of existing json parsers, not to denigrate the work of the many contributors who worked on the various libraries presented here.
+Its goal is to document limitations of existing json parsers, not to denigrate the work of the many contributors who worked on the various libraries presented here.
 
 ## Introduction
 
@@ -46,6 +46,7 @@ java       | [Gson](https://github.com/google/gson)                      | 5670 
 javascript | `JSON.parse`                                               | 5713          | 11.4 KB       |
 C++        | [nlohmann::json](https://github.com/nlohmann/json)          | 13787         | 27.6 KB       | segfault
 Nim        | [json](https://nim-lang.org/docs/json.html)                 | 100000        | 200 KB        | w/ `-d:release`
+go         | `encoding/json`                                             | 2581101       | 5.0 MiB       | goroutine stack exceeds 1000000000-byte limit
 ruby       | [Oj](https://github.com/ohler55/oj)                         | ∞             | ∞             |
 Haskell    | [Aeson](https://hackage.haskell.org/package/aeson)          | ∞             | ∞             | available RAM is the only limit
 
