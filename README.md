@@ -51,6 +51,7 @@ C++             | [nlohmann::json](https://github.com/nlohmann/json)          | 
 D               | [`std.json`](https://dlang.org/phobos/std_json.html)        | 37373         | 74.7 KB       |
 Nim             | [json](https://nim-lang.org/docs/json.html)                 | 100000        | 200 KB        | w/ `-d:release`
 go              | `encoding/json`                                             | 2581101       | 5.0 MiB       | goroutine stack exceeds 1000000000-byte limit
+C#              | [Newtonsoft.Json](https://www.newtonsoft.com/json)          | ∞             | ∞             |
 ruby            | [Oj](https://github.com/ohler55/oj)                         | ∞             | ∞             |
 Haskell         | [Aeson](https://hackage.haskell.org/package/aeson)          | ∞             | ∞             | available RAM is the only limit
 
