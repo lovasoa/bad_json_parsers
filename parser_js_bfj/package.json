@@ -1,0 +1,6 @@
+{
+  "main": "index.js",
+  "dependencies": {
+    "bfj": "^7.0.1"
+  }
+}

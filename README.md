@@ -51,6 +51,7 @@ Nim             | [json](https://nim-lang.org/docs/json.html)                 | 
 go              | `encoding/json`                                             | 2581101       | 5.0 MiB       | goroutine stack exceeds 1000000000-byte limit
 ruby            | [Oj](https://github.com/ohler55/oj)                         | ∞             | ∞             |
 Haskell         | [Aeson](https://hackage.haskell.org/package/aeson)          | ∞             | ∞             | available RAM is the only limit
+javascript      | [BFJ](https://www.npmjs.com/package/bfj)                    | ∞             | ∞             |
 
 
 ## Remarks
