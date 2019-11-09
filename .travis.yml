@@ -1,5 +1,5 @@
 matrix:
   include:
     - language: d
-      install: dmd parser_d.d
+      install: dmd -release -O parser_d.d
       script: ./test_parser.sh ./parser_d
