@@ -27,6 +27,11 @@ matrix:
       install: go build parser_go.go
       script: ./test_parser.sh ./parser_go
 
+    - language: csharp
+      mono: none
+      dotnet: 3.0
+      script: ./test_parser.sh 'dotnet run -p parser_dotnet_system_text_json'
+
     # nim
     - language: c
       os: linux

@@ -37,6 +37,7 @@ I found the following results, sorted from least nesting to most nesting:
 
 language        | json library                                                | nesting level | file size     | notes                         |
 ----------------| ----------------------------------------------------------- | ------------- | ------------- | ----------------------------- |
+C#              | [System.Text.Json](https://docs.microsoft.com/en-us/dotnet/api/system.text.json) | 65 | 130 bytes | configurable with `JsonSerializerOptions.MaxDepth`
 ruby            | [json](https://rubygems.org/gems/json/versions/1.8.3)       | 101           | 202 bytes     |
 rust            | [serde_json](https://docs.serde.rs/serde_json/)             | 128           | 256 bytes     |
 php             | `json_decode`                                               | 512           | 1024 bytes    | maximum depth is configurable |
