@@ -15,9 +15,7 @@ matrix:
     - language: csharp
       mono: none
       dotnet: 3.0
-      script:
-       - echo '[[[]]]' | dotnet run -p parser_dotnet
-       - ./test_parser.sh dotnet run -p parser_dotnet
+      script: ./test_parser.sh dotnet run -p parser_dotnet
   
     - language: node_js
       node_js: "8"
