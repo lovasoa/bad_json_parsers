@@ -26,7 +26,7 @@ matrix:
     - dist: bionic
       language: minimal
       install:
-        - sudo apt-get -y install nim
+        - sudo snap install nim-lang
       script:
-        - nim c -d:release parser_nim.nim
+        - nim-lang.nim c -d:release parser_nim.nim
         - ./test_parser.sh ./parser_nim
