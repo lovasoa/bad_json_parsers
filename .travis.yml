@@ -36,3 +36,7 @@ matrix:
       script:
         - nim c -d:release parser_nim.nim
         - ./test_parser.sh ./parser_nim
+
+    - language: d
+      install: dmd parser_d.d
+      script: ./test_parser.sh ./parser_d
