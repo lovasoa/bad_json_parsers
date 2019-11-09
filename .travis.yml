@@ -17,6 +17,15 @@ matrix:
       dotnet: 3.0
       script: ./test_parser.sh dotnet run -p parser_dotnet
   
+    - language: java
+      jdk: openjdk12
+      script:
+        - mvn -f parser-java-jackson/pom.xml clean install -DskipTests
+        - ./test_parser.sh java -jar parser-java-jackson/target/bad-parser-jackson-1.0-SNAPSHOT.jar
+      cache:
+        directories:
+          - $HOME/.m2
+
     - language: node_js
       node_js: "8"
       script: ./test_parser.sh node parser_javascript.js
