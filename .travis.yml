@@ -1,42 +1,5 @@
 matrix:
   include:
-    - language: perl
-      perl: 5.30
-      install: ""
-      script: ./test_parser.sh perl parser_perl.pl
-
-    - language: python
-      python: 3.8
-      script: ./test_parser.sh python parser_python.py
-
-    - language: ruby
-      script: ./test_parser.sh ruby parser_ruby.rb
-
-
-    - language: node_js
-      node_js: "8"
-      script: ./test_parser.sh node parser_javascript.js
-
-    - language: go
-      install: go build parser_go.go
-      script: ./test_parser.sh ./parser_go
-
-
-    # nim
-    - language: c
-      os: linux
-      compiler: gcc
-      install:
-        - export CHOOSENIM_NO_ANALYTICS=1
-        - curl https://nim-lang.org/choosenim/init.sh -sSf > init.sh
-        - sh init.sh -y
-        - export PATH=~/.nimble/bin:$PATH
-        - echo "export PATH=~/.nimble/bin:$PATH" >> ~/.profile
-        - choosenim stable
-      script:
-        - nim c -d:release parser_nim.nim
-        - ./test_parser.sh ./parser_nim
-
     - language: d
       install: dmd parser_d.d
       script: ./test_parser.sh ./parser_d
