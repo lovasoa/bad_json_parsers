@@ -43,9 +43,9 @@ php             | `json_decode`                                               | 
 perl            | [JSON::PP](https://perldoc.perl.org/JSON/PP.html)           | 513           | 1026 bytes    |
 python3         | [json](https://docs.python.org/3/library/json.html)         | 994           | 2.0 KB        | without sys.setrecursionlimit
 C               | [jansson](https://jansson.readthedocs.io/)                  | 2049          | 4.0 KB        | 
-java - gson     | [Gson](https://github.com/google/gson)                      | 5670          | 11.3 KB       |
+java            | [Gson](https://github.com/google/gson)                      | 5670          | 11.3 KB       |
 javascript      | `JSON.parse`                                                | 5713          | 11.4 KB       |
-java - jackson  | [Jackson](https://github.com/FasterXML/jackson-core)        | 6373          | 13   KB       |
+java            | [Jackson](https://github.com/FasterXML/jackson-core)        | 6373          | 13   KB       |
 C++             | [nlohmann::json](https://github.com/nlohmann/json)          | 13787         | 27.6 KB       | segfault
 Nim             | [json](https://nim-lang.org/docs/json.html)                 | 100000        | 200 KB        | w/ `-d:release`
 go              | `encoding/json`                                             | 2581101       | 5.0 MiB       | goroutine stack exceeds 1000000000-byte limit
