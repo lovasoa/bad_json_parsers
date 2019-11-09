@@ -12,6 +12,11 @@ matrix:
     - language: ruby
       script: ./test_parser.sh ruby parser_ruby.rb
 
+    - language: csharp
+      mono: none
+      dotnet: 3.0
+      script: ./test_parser.sh dotnet run -p parser_dotnet
+  
     - language: java
       jdk: openjdk12
       script:
