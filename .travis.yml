@@ -12,6 +12,14 @@ matrix:
     - language: ruby
       script: ./test_parser.sh ruby parser_ruby.rb
 
+    - language: java
+      jdk: openjdk12
+      script:
+        - mvn -f parser-java-jackson/pom.xml clean install -DskipTests
+        - ./test_parser.sh java -jar parser-java-jackson/target/bad-parser-jackson-1.0-SNAPSHOT.jar
+      cache:
+        directories:
+          - $HOME/.m2
 
     - language: node_js
       node_js: "8"
