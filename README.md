@@ -17,6 +17,21 @@ doesn't contain any limit on how deeply nested JSON structures can be.
 
 This means that there is not a defined level of nesting which is correct or incorrect with regard to the JSON specification, and JSON parsers may differ when parsing nested structures.
 
+Some recursive parser libraries implement a safety check in order to avoid crashing the calling program:
+they artificially limit the maximum depth they accept (sometimes making that limit configurable),
+hoping that the size of the stack at the moment they are called plus the artificial limit will always be smaller than the total stack size.
+This limit is an arbitrary choice of the library implementer, and it explains all the lower values of the comparison you'll see below.
+
+Some parsers do not use the operating system stack at all to parse nested structures
+(they usually implement a [state machine](https://en.wikipedia.org/wiki/Finite-state_machine) instead).
+These can usually accept arbitrarily deeply nested structures.
+Of course, for non-streaming parsers, they cannot physically be provided infinitely large inputs,
+and thus cannot produce infinitely-large outputs.
+
+You should note that parsers that set an arbitrary limit on the input nesting level are not safer
+and do not provide any more memory consumption guarantees than parsers that can handle arbitrarily nested input:
+they still consume an amount of resources proportional to the size of their input. 
+
 This repository contains tools to measure the nesting limits of JSON parsers of different languages.
 
 ## How to use
@@ -53,8 +68,7 @@ Nim             | [json](https://nim-lang.org/docs/json.html)                 | 
 go              | `encoding/json`                                             | 2581101       | 5.0 MiB       | goroutine stack exceeds 1000000000-byte limit
 C#              | [Newtonsoft.Json](https://www.newtonsoft.com/json)          | ∞             | ∞             |
 ruby            | [Oj](https://github.com/ohler55/oj)                         | ∞             | ∞             |
-Haskell         | [Aeson](https://hackage.haskell.org/package/aeson)          | ∞             | ∞             | available RAM is the only limit
-
+Haskell         | [Aeson](https://hackage.haskell.org/package/aeson)          | ∞             | ∞             |
 
 ## Remarks
 
