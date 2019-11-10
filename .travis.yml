@@ -81,7 +81,6 @@ matrix:
       install: 
         - cd parser_elixir
       script:
-        - cd parser_elixir
         - mix escript.build
         - cd ..
         - ./test_parser.sh ./parser_elixir
