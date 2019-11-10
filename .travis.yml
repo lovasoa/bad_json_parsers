@@ -40,10 +40,10 @@ matrix:
       script: ./test_parser.sh 'dotnet run -p parser_dotnet_system_text_json'
 
     - language: c
-      install:
-        - sudo apt-get -y install libjansson-dev
-        - cd parser_c_jansson && make
-      script: ./test_parser.sh ./parser_c_jansson/parser_c_jansson
+      install: sudo apt-get -y install libjansson-dev
+      script:
+       - cd parser_c_jansson && make && cd ..
+       - ./test_parser.sh ./parser_c_jansson/parser_c_jansson
  
     # nim
     - language: c
