@@ -39,10 +39,29 @@ matrix:
       dotnet: 3.0
       script: ./test_parser.sh 'dotnet run -p parser_dotnet_system_text_json'
 
-    # nim
     - language: c
-      os: linux
-      compiler: gcc
+      install: sudo apt-get -y install libjansson-dev
+      script:
+       - cd parser_c_jansson && make && cd ..
+       - ./test_parser.sh ./parser_c_jansson/parser_c_jansson
+ 
+    - language: rust
+      install: cd parser_rust && cargo build --release && cd ..
+      script: ./test_parser.sh ./parser_rust/target/release/parser_rust
+
+    - language: minimal
+      env: LANG=OCAML OPAMYES=true
+      install:
+        - sudo apt-get -y install ocaml ocaml-native-compilers camlp4-extra opam
+        - opam init --auto-setup
+        - eval $(opam config env)
+        - opam install --yes yojson ocamlfind
+        - cd parser_ocaml_yojson && make && cd ..
+      script: ./test_parser.sh ./parser_ocaml_yojson/parser_ocaml
+
+    # nim
+    - language: minimal
+      env: LANG=NIM
       install:
         - export CHOOSENIM_NO_ANALYTICS=1
         - curl https://nim-lang.org/choosenim/init.sh -sSf > init.sh
