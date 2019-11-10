@@ -52,6 +52,7 @@ matrix:
     - language: minimal
       install:
         - sudo apt-get -y install ocaml ocaml-native-compilers camlp4-extra opam
+        - opam init
         - opam install yojson
         - cd parser_ocaml_yojson && make && cd ..
       script: ./test_parser.sh ./parser_ocaml_yojson/parser_ocaml
