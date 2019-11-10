@@ -18,7 +18,7 @@ doesn't contain any limit on how deeply nested JSON structures can be.
 This means that there is not a defined level of nesting which is correct or incorrect with regard to the JSON specification, and JSON parsers may differ when parsing nested structures.
 
 Some recursive parser libraries implement a safety check in order to avoid crashing the calling program:
-they artificially limit the maximum depth they accept (sometimes making that limit configurable),
+they artificially limit the maximum depth they accept (often making that limit configurable),
 hoping that the size of the stack at the moment they are called plus the artificial limit will always be smaller than the total stack size.
 This limit is an arbitrary choice of the library implementer, and it explains all the lower values of the comparison you'll see below.
 
@@ -48,16 +48,16 @@ It uses [binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm) t
 ## Results
 
 On my machine (Ubuntu Linux 4.10.0-35-generic SMP x86_64 with 8Gb RAM, 8.4 MB maximum stack size),
-I found the following results, sorted from least nesting to most nesting:
+I found the following results, sorted from least nesting allowed by default to the most:
 
 language        | json library                                                | nesting level | file size     | notes                         |
-----------------| ----------------------------------------------------------- | ------------- | ------------- | ----------------------------- |
-C#              | [System.Text.Json](https://docs.microsoft.com/en-us/dotnet/api/system.text.json) | 65 | 130 bytes | configurable with `JsonSerializerOptions.MaxDepth`
-ruby            | [json](https://rubygems.org/gems/json/versions/1.8.3)       | 101           | 202 bytes     |
-rust            | [serde_json](https://docs.serde.rs/serde_json/)             | 128           | 256 bytes     |
-php             | `json_decode`                                               | 512           | 1024 bytes    | maximum depth is configurable |
-perl            | [JSON::PP](https://perldoc.perl.org/JSON/PP.html)           | 513           | 1026 bytes    |
-python3         | [json](https://docs.python.org/3/library/json.html)         | 994           | 2.0 KB        | without sys.setrecursionlimit
+----------------| ----------------------------------------------------------- | ------------- | ------------- | ----
+C#              | [System.Text.Json](https://docs.microsoft.com/en-us/dotnet/api/system.text.json) | 65 | 130 bytes | configurable (`JsonSerializerOptions.MaxDepth`)
+ruby            | [json](https://rubygems.org/gems/json/versions/1.8.3)       | 101           | 202 bytes     | configurable (`:max_nesting`)
+rust            | [serde_json](https://docs.serde.rs/serde_json/)             | 128           | 256 bytes     | disableable (`disable_recursion_limit`)
+php             | `json_decode`                                               | 512           | 1024 bytes    | configurable (`$depth`)
+perl            | [JSON::PP](https://perldoc.perl.org/JSON/PP.html)           | 513           | 1026 bytes    | configurable (`max_depth`)
+python3         | [json](https://docs.python.org/3/library/json.html)         | 994           | 2.0 KB        | configurable (`sys.setrecursionlimit`)
 C               | [jansson](https://jansson.readthedocs.io/)                  | 2049          | 4.0 KB        |
 java            | [Gson](https://github.com/google/gson)                      | 5670          | 11.3 KB       |
 javascript      | `JSON.parse`                                                | 5713          | 11.4 KB       |
@@ -69,6 +69,8 @@ go              | `encoding/json`                                             | 
 C#              | [Newtonsoft.Json](https://www.newtonsoft.com/json)          | ∞             | ∞             |
 ruby            | [Oj](https://github.com/ohler55/oj)                         | ∞             | ∞             |
 Haskell         | [Aeson](https://hackage.haskell.org/package/aeson)          | ∞             | ∞             |
+
+Note that *configurable* and *disableable* mean only that the default depth check inside the parser itself can be configured or disabled, not that the parser can be made to accept any nesting depth. When disabling the limit or increasing it too much, the parser will crash the calling program instead of returning a clean error. 
 
 ## Remarks
 
