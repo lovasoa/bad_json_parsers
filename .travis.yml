@@ -52,10 +52,10 @@ matrix:
     - language: minimal
       env: LANG=OCAML OPAMYES=true
       install:
-        - sudo apt-get -y install ocaml ocaml-native-compilers ocaml-findlib camlp4-extra opam
+        - sudo apt-get -y install ocaml ocaml-native-compilers camlp4-extra opam
         - opam init --auto-setup
         - eval $(opam config env)
-        - opam install --yes yojson
+        - opam install --yes yojson ocamlfind
         - cd parser_ocaml_yojson && make && cd ..
       script: ./test_parser.sh ./parser_ocaml_yojson/parser_ocaml
 
