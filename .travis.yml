@@ -76,3 +76,14 @@ matrix:
     - language: d
       install: dmd parser_d.d
       script: ./test_parser.sh ./parser_d
+
+    - language: elixir
+      elixir: 1.9.0
+      install: 
+        - cd parser_elixir
+      script:
+        - mix local.hex --force
+        - mix deps.get
+        - mix escript.build
+        - cd ..
+        - ./test_parser.sh ./parser_elixir/parser_elixir
