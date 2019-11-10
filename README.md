@@ -62,7 +62,7 @@ C               | [jansson](https://jansson.readthedocs.io/)                  | 
 java            | [Gson](https://github.com/google/gson)                      | 5670          | 11.3 KB       |
 javascript      | `JSON.parse`                                                | 5713          | 11.4 KB       |
 java            | [Jackson](https://github.com/FasterXML/jackson-core)        | 6373          | 13   KB       |
-C++             | [nlohmann::json](https://github.com/nlohmann/json)          | 13787         | 27.6 KB       | segfault
+C++             | [JSON for Modern C++ version 3.7.2](https://github.com/nlohmann/json) | ∞   | ∞             |
 D               | [`std.json`](https://dlang.org/phobos/std_json.html)        | 37373         | 74.7 KB       |
 Nim             | [json](https://nim-lang.org/docs/json.html)                 | 104750        | 209 KB        | w/ `-d:release`
 OCaml           | [yojson](https://github.com/ocaml-community/yojson)         | 130391        | 261 KB        |

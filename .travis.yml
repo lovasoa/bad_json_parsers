@@ -47,7 +47,7 @@ matrix:
 
     - language: cpp
       script:
-       - cd parser_cpp && curl https://github.com/nlohmann/json/releases/download/v3.7.1/json.hpp -L -O && cd ..
+       - cd parser_cpp && curl https://github.com/nlohmann/json/releases/download/v3.7.2/json.hpp -L -O && cd ..
        - cd parser_cpp && g++ -std=c++11 -O3 -flto -DNDEBUG parser_cpp.cpp -o parser_cpp && cd ..
        - ./test_parser.sh ./parser_cpp/parser_cpp
  
