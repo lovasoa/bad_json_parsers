@@ -48,7 +48,14 @@ matrix:
     - language: rust
       install: cd parser_rust && cargo build --release && cd ..
       script: ./test_parser.sh ./parser_rust/target/release/parser_rust
-       
+
+    - language: minimal
+      install:
+        - sudo apt-get -y install ocaml ocaml-native-compilers camlp4-extra opam
+        - opam install yojson
+        - cd parser_ocaml_yojson && make && cd ..
+      script: ./test_parser.sh ./parser_ocaml_yojson/parser_ocaml
+
     # nim
     - language: c
       os: linux
