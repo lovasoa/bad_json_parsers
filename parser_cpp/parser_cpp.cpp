@@ -1,9 +1,6 @@
+#include <iostream>
 #include "json.hpp"
 
-// for convenience
-using json = nlohmann::json;
-
-int main(void) {
-  json j;
-  std::cin >> j;
+int main() {
+	auto j = nlohmann::json::parse(std::cin);
 }
