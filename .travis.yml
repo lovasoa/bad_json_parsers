@@ -44,6 +44,12 @@ matrix:
       script:
        - cd parser_c_jansson && make && cd ..
        - ./test_parser.sh ./parser_c_jansson/parser_c_jansson
+
+    - language: cpp
+      script:
+       - cd parser_cpp && curl https://github.com/nlohmann/json/releases/download/v3.7.1/json.hpp
+       - cd parser_cpp && g++ -std=c++11 -O3 -flto -DNDEBUG parser_cpp.cpp -o parser_cpp
+       - ./test_parser.sh ./parser_cpp/parser_cpp
  
     - language: rust
       install: cd parser_rust && cargo build --release && cd ..
