@@ -78,6 +78,10 @@ matrix:
       script: ./test_parser.sh ./parser_d
 
     - language: elixir
+      install: 
+        - cd parser_elixir
       script:
+        - cd parser_elixir
         - mix escript.build
-        - ./test_parser.sh ./parser_elixir/parser_elixir
+        - cd ..
+        - ./test_parser.sh ./parser_elixir
