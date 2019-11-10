@@ -45,6 +45,10 @@ matrix:
        - cd parser_c_jansson && make && cd ..
        - ./test_parser.sh ./parser_c_jansson/parser_c_jansson
  
+    - language: rust
+      install: cd parser_rust && cargo build --release && cd ..
+      script: ./test_parser.sh ./parser_rust/target/release/parser_rust
+       
     # nim
     - language: c
       os: linux
