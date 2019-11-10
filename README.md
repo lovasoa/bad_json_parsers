@@ -64,7 +64,7 @@ javascript      | `JSON.parse`                                                | 
 java            | [Jackson](https://github.com/FasterXML/jackson-core)        | 6373          | 13   KB       |
 C++             | [nlohmann::json](https://github.com/nlohmann/json)          | 13787         | 27.6 KB       | segfault
 D               | [`std.json`](https://dlang.org/phobos/std_json.html)        | 37373         | 74.7 KB       |
-Nim             | [json](https://nim-lang.org/docs/json.html)                 | 100000        | 200 KB        | w/ `-d:release`
+Nim             | [json](https://nim-lang.org/docs/json.html)                 | 104750        | 209 KB        | w/ `-d:release`
 OCaml           | [yojson](https://github.com/ocaml-community/yojson)         | 130391        | 261 KB        |
 go              | `encoding/json`                                             | 2581101       | 5.0 MiB       | goroutine stack exceeds 1000000000-byte limit
 C#              | [Newtonsoft.Json](https://www.newtonsoft.com/json)          | ∞             | ∞             |
