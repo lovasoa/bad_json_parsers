@@ -55,6 +55,7 @@ language        | json library                                                | 
 C#              | [System.Text.Json](https://docs.microsoft.com/en-us/dotnet/api/system.text.json) | 65 | 130 bytes | configurable (`JsonSerializerOptions.MaxDepth`)
 ruby            | [json](https://rubygems.org/gems/json/versions/1.8.3)       | 101           | 202 bytes     | configurable (`:max_nesting`)
 rust            | [serde\_json](https://docs.serde.rs/serde_json/)            | 128           | 256 bytes     | disableable (`disable_recursion_limit`)
+shell           | [jq](https://stedolan.github.io/jq/)                        | 257           | 514 bytes     | undocumented
 php             | `json_decode`                                               | 512           | 1024 bytes    | configurable (`$depth`)
 perl            | [JSON::PP](https://perldoc.perl.org/JSON/PP.html)           | 513           | 1026 bytes    | configurable (`max_depth`)
 python3         | [json](https://docs.python.org/3/library/json.html)         | 994           | 2.0 KB        | configurable (`sys.setrecursionlimit`), undocumented

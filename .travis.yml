@@ -109,3 +109,6 @@ jobs:
         - mix escript.build
         - cd ..
         - ./test_parser.sh ./parser_elixir/parser_elixir
+
+    - name: jq
+      script: ./test_parser.sh ./parser_jq.sh
