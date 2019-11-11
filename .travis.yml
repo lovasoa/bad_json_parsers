@@ -2,6 +2,10 @@ dist: bionic
 language: shell
 os: linux
 
+before_install:
+  - cat /proc/meminfo
+  - ulimit -a
+
 jobs:
   include:
     - language: perl
