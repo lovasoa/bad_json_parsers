@@ -6,11 +6,12 @@ before_install:
   - cat /proc/meminfo
   - ulimit -a
 
+install: "/bin/true" # Install nothing by default
+
 jobs:
   include:
     - language: perl
       perl: 5.30
-      install: "/bin/true"
       script: ./test_parser.sh perl parser_perl.pl
 
     - language: python
@@ -86,6 +87,10 @@ jobs:
     - language: rust
       install: cd parser_rust && cargo build --release && cd ..
       script: ./test_parser.sh ./parser_rust/target/release/parser_rust
+      cache:
+        directories:
+          - $TRAVIS_BUILD_DIR/parser_rust/target
+          - $HOME/.cargo
 
     - name: ocaml
       env: OPAMYES=true
@@ -98,16 +103,17 @@ jobs:
       script: ./test_parser.sh ./parser_ocaml_yojson/parser_ocaml
 
     - name: nim
+      env: CHOOSENIM_NO_ANALYTICS=1
       install:
-        - export CHOOSENIM_NO_ANALYTICS=1
-        - curl https://nim-lang.org/choosenim/init.sh -sSf > init.sh
-        - sh init.sh -y
         - export PATH=~/.nimble/bin:$PATH
-        - echo "export PATH=~/.nimble/bin:$PATH" >> ~/.profile
+        - nim -v || (curl https://nim-lang.org/choosenim/init.sh -sSf | bash -s -- -y)
         - choosenim stable
       script:
         - nim c -d:release parser_nim.nim
         - ./test_parser.sh ./parser_nim
+      cache:
+        directories:
+          - $HOME/.nimble
 
     - language: d
       install: dmd parser_d.d
