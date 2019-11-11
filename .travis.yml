@@ -46,17 +46,12 @@ jobs:
         - ./test_parser.sh ./parser_go_jsoniter
 
     - language: csharp
-      name: "C# (Newtonsoft Json.NET)"
       mono: none
       dotnet: 3.0
-      script: ./test_parser.sh dotnet run -p parser_dotnet
+      script:
+        - ./test_parser.sh dotnet run -p parser_dotnet
+        - ./test_parser.sh dotnet run -p parser_dotnet_system_text_json
   
-    - language: csharp
-      name: "C# (System.Text.Json)"
-      mono: none
-      dotnet: 3.0
-      script: ./test_parser.sh 'dotnet run -p parser_dotnet_system_text_json'
-
     - language: c
       install: sudo apt-get -y install libjansson-dev
       script:
