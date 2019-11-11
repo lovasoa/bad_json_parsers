@@ -54,16 +54,17 @@ language        | json library                                                | 
 ----------------| ----------------------------------------------------------- | ------------- | ------------- | ----
 C#              | [System.Text.Json](https://docs.microsoft.com/en-us/dotnet/api/system.text.json) | 65 | 130 bytes | configurable (`JsonSerializerOptions.MaxDepth`)
 ruby            | [json](https://rubygems.org/gems/json/versions/1.8.3)       | 101           | 202 bytes     | configurable (`:max_nesting`)
-rust            | [serde_json](https://docs.serde.rs/serde_json/)             | 128           | 256 bytes     | disableable (`disable_recursion_limit`)
+rust            | [serde\_json](https://docs.serde.rs/serde_json/)            | 128           | 256 bytes     | disableable (`disable_recursion_limit`)
 php             | `json_decode`                                               | 512           | 1024 bytes    | configurable (`$depth`)
 perl            | [JSON::PP](https://perldoc.perl.org/JSON/PP.html)           | 513           | 1026 bytes    | configurable (`max_depth`)
-python3         | [json](https://docs.python.org/3/library/json.html)         | 994           | 2.0 KB        | configurable (`sys.setrecursionlimit`)
+python3         | [json](https://docs.python.org/3/library/json.html)         | 994           | 2.0 KB        | configurable (`sys.setrecursionlimit`), undocumented
 C               | [jansson](https://jansson.readthedocs.io/)                  | 2049          | 4.0 KB        |
 java            | [Gson](https://github.com/google/gson)                      | 5670          | 11.3 KB       |
 javascript      | `JSON.parse`                                                | 5713          | 11.4 KB       |
 java            | [Jackson](https://github.com/FasterXML/jackson-core)        | 6373          | 13   KB       |
-D               | [`std.json`](https://dlang.org/phobos/std_json.html)        | 37373         | 74.7 KB       |
-Nim             | [json](https://nim-lang.org/docs/json.html)                 | 104750        | 209 KB        | w/ `-d:release`
+D               | [`std.json`](https://dlang.org/phobos/std_json.html)        | 37373         | 74.7 KB       | segfaults
+C++             | [RapidJSON](http://rapidjson.org/)                          | 87289         | 175 KB        | segfaults
+Nim             | [json](https://nim-lang.org/docs/json.html)                 | 104750        | 209 KB        | segfaults
 OCaml           | [yojson](https://github.com/ocaml-community/yojson)         | 130391        | 261 KB        |
 go              | `encoding/json`                                             | 2581101       | 5.0 MiB       | goroutine stack exceeds 1000000000-byte limit
 C++             | [JSON for Modern C++ version 3.7.2](https://github.com/nlohmann/json) | ∞   | ∞             |
