@@ -66,7 +66,7 @@ jobs:
         - cd parser_cpp && g++ -std=c++11 -O3 -flto -DNDEBUG parser_cpp.cpp -o parser_cpp
         - ../test_parser.sh ./parser_cpp
         - cd $TRAVIS_BUILD_DIR/parser_cpp_rapidjson && g++ -O3 -flto parser_cpp_rapidjson.cpp -o parser_cpp_rapidjson
-        - ../test_parser.sh ./parser_cpp/parser_cpp
+        - ../test_parser.sh ./parser_cpp_rapidjson
  
     - language: php
       php: "7.1"
