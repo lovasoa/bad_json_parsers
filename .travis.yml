@@ -1,4 +1,8 @@
-matrix:
+dist: bionic
+language: shell
+os: linux
+
+jobs:
   include:
     - language: perl
       perl: 5.30
@@ -12,11 +16,6 @@ matrix:
     - language: ruby
       script: ./test_parser.sh ruby parser_ruby.rb
 
-    - language: csharp
-      mono: none
-      dotnet: 3.0
-      script: ./test_parser.sh dotnet run -p parser_dotnet
-  
     - language: java
       jdk: openjdk12
       script:
@@ -35,6 +34,13 @@ matrix:
       script: ./test_parser.sh ./parser_go
 
     - language: csharp
+      name: "C# (Newtonsoft Json.NET)"
+      mono: none
+      dotnet: 3.0
+      script: ./test_parser.sh dotnet run -p parser_dotnet
+  
+    - language: csharp
+      name: "C# (System.Text.Json)"
       mono: none
       dotnet: 3.0
       script: ./test_parser.sh 'dotnet run -p parser_dotnet_system_text_json'
@@ -67,8 +73,8 @@ matrix:
       install: cd parser_rust && cargo build --release && cd ..
       script: ./test_parser.sh ./parser_rust/target/release/parser_rust
 
-    - language: minimal
-      env: LANG=OCAML OPAMYES=true
+    - name: ocaml
+      env: OPAMYES=true
       install:
         - sudo apt-get -y install ocaml ocaml-native-compilers camlp4-extra opam
         - opam init --auto-setup
@@ -77,9 +83,7 @@ matrix:
         - cd parser_ocaml_yojson && make && cd ..
       script: ./test_parser.sh ./parser_ocaml_yojson/parser_ocaml
 
-    # nim
-    - language: minimal
-      env: LANG=NIM
+    - name: nim
       install:
         - export CHOOSENIM_NO_ANALYTICS=1
         - curl https://nim-lang.org/choosenim/init.sh -sSf > init.sh
