@@ -121,6 +121,7 @@ jobs:
       cache:
         directories:
           - $HOME/.nimble
+          - $HOME/.choosenim
 
     - language: d
       install: dmd parser_d.d
