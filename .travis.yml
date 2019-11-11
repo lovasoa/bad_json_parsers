@@ -45,8 +45,12 @@ jobs:
       script: ./test_parser.sh node parser_javascript.js
 
     - language: go
-      install: go build parser_go.go
-      script: ./test_parser.sh ./parser_go
+      install:
+        - go build parser_go.go
+        - go get github.com/json-iterator/go && go build parser_go_jsoniter.go
+      script:
+        - ./test_parser.sh ./parser_go
+        - ./test_parser.sh ./parser_go_jsoniter
 
     - language: csharp
       name: "C# (Newtonsoft Json.NET)"
