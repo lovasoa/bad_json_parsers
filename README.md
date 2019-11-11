@@ -64,9 +64,9 @@ php             | `json_decode`                                               | 
 perl            | [JSON::PP](https://perldoc.perl.org/JSON/PP.html)           | 513           | 1026 bytes    | configurable (`max_depth`)
 python3         | [json](https://docs.python.org/3/library/json.html)         | 994           | 2.0 KB        | configurable (`sys.setrecursionlimit`), undocumented
 C               | [jansson](https://jansson.readthedocs.io/)                  | 2049          | 4.0 KB        |
-java            | [Gson](https://github.com/google/gson)                      | 5670          | 11.3 KB       |
 javascript      | `JSON.parse`                                                | 5713          | 11.4 KB       |
 java            | [Jackson](https://github.com/FasterXML/jackson-core)        | 6373          | 13   KB       |
+java            | [Gson](https://github.com/google/gson)                      | 6901          | 14   KB       |
 D               | [`std.json`](https://dlang.org/phobos/std_json.html)        | 37373         | 74.7 KB       | segfaults
 C++             | [RapidJSON](http://rapidjson.org/)                          | 87289         | 175 KB        | segfaults
 Nim             | [json](https://nim-lang.org/docs/json.html)                 | 104750        | 209 KB        | segfaults
