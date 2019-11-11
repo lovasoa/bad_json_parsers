@@ -86,10 +86,16 @@ jobs:
 
     - language: haskell
       ghc: "8.8"
+      cabal: "3.0"
       install:
         - cd parser_haskell
         - cabal install --only-dependencies
       script: ../test_parser.sh cabal run
+      cache:
+        directories:
+          - $HOME/.cabal/packages
+          - $HOME/.cabal/store
+          - $HOME/.cabal/bin
 
     - language: rust
       install: cd parser_rust && cargo build --release && cd ..
