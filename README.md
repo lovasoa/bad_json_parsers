@@ -47,8 +47,12 @@ It uses [binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm) t
 
 ## Results
 
-On my machine (Ubuntu Linux 4.10.0-35-generic SMP x86_64 with 8Gb RAM, 8.4 MB maximum stack size),
-I found the following results, sorted from least nesting allowed by default to the most:
+The various implementations in this repository are continuously
+[tested by Tarvis CI](https://travis-ci.org/lovasoa/bad_json_parsers)
+on a virtual machine running Ubuntu 18.04, with 8Gb of RAM,
+and a maximum stack size of 8.192 Mb.
+
+Here are the results we found, sorted from least nesting allowed by default to the most:
 
 language        | json library                                                | nesting level | file size     | notes                         |
 ----------------| ----------------------------------------------------------- | ------------- | ------------- | ----
