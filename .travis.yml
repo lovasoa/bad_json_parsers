@@ -17,10 +17,20 @@ jobs:
       script: ./test_parser.sh ruby parser_ruby.rb
 
     - language: java
+      name: Java (Jackson)
       jdk: openjdk12
       script:
         - mvn -f parser-java-jackson/pom.xml clean install -DskipTests
         - ./test_parser.sh java -jar parser-java-jackson/target/bad-parser-jackson-1.0-SNAPSHOT.jar
+      cache:
+        directories:
+          - $HOME/.m2
+
+    - language: java
+      name: Java (Gson)
+      jdk: openjdk12
+      install: mvn -f parser_java_gson/pom.xml clean install -DskipTests
+      script: ./test_parser.sh java -jar parser_java_gson/target/jsonparser-1.0-SNAPSHOT.jar
       cache:
         directories:
           - $HOME/.m2
