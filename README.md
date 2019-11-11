@@ -68,7 +68,7 @@ C++             | [RapidJSON](http://rapidjson.org/)                          | 
 Nim             | [json](https://nim-lang.org/docs/json.html)                 | 104750        | 209 KB        | segfaults
 OCaml           | [yojson](https://github.com/ocaml-community/yojson)         | 130391        | 261 KB        |
 go              | `encoding/json`                                             | 2581101       | 5.0 MiB       | goroutine stack exceeds 1000000000-byte limit
-C++             | [JSON for Modern C++ version 3.7.2](https://github.com/nlohmann/json) | ∞   | ∞             |
+C++             | [JSON for Modern C++](https://github.com/nlohmann/json)     | ∞             | ∞             | segfault fixed in v3.7.2
 C#              | [Newtonsoft.Json](https://www.newtonsoft.com/json)          | ∞             | ∞             |
 ruby            | [Oj](https://github.com/ohler55/oj)                         | ∞             | ∞             |
 Haskell         | [Aeson](https://hackage.haskell.org/package/aeson)          | ∞             | ∞             |
