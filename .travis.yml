@@ -111,4 +111,5 @@ jobs:
         - ./test_parser.sh ./parser_elixir/parser_elixir
 
     - name: jq
-      script: ./test_parser.sh ./parser_jq.sh
+      install: wget 'https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64'
+      script: ./test_parser.sh ./jq-linux64 .
