@@ -84,6 +84,13 @@ jobs:
       php: "7.1"
       script: ./test_parser.sh php ./parser_php.php
 
+    - language: haskell
+      ghc: "8.8"
+      install:
+        - cd parser_haskell
+        - cabal install --only-dependencies
+      script: ../test_parser.sh cabal run
+
     - language: rust
       install: cd parser_rust && cargo build --release && cd ..
       script: ./test_parser.sh ./parser_rust/target/release/parser_rust

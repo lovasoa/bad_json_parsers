@@ -1,0 +1,10 @@
+cabal-version:       >=1.10
+name:                parser-haskell
+version:             1
+author:              Ophir LOJKINE
+build-type:          Simple
+
+executable parser-haskell
+  main-is:             Main.hs
+  build-depends:       bytestring, aeson, base >=4.13 && <4.14
+  default-language:    Haskell2010

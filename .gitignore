@@ -1,6 +1,3 @@
-parser_haskell
-parser_haskell.hi
-parser_haskell.o
 parser_nim
 # For parser_elixir
 parser_elixir/_build/
