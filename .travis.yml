@@ -34,7 +34,7 @@ jobs:
       name: Java (Gson)
       jdk: openjdk12
       install: mvn -f parser_java_gson/pom.xml clean install -DskipTests
-      script: ./test_parser.sh java -jar parser_java_gson/target/jsonparser-1.0-SNAPSHOT.jar
+      script: ./test_parser.sh java -jar parser_java_gson/target/jsonparser-1.jar
       cache:
         directories:
           - $HOME/.m2
