@@ -67,7 +67,7 @@ C               | [jansson](https://jansson.readthedocs.io/)                  | 
 javascript      | `JSON.parse`                                                | 5713          | 11.4 KB       |
 java            | [Jackson](https://github.com/FasterXML/jackson-core)        | 6373          | 13   KB       |
 java            | [Gson](https://github.com/google/gson)                      | 6901          | 14   KB       |
-go              | [json-iterator](https://github.com/json-iterator/go)        | 10002         | 20   KB       | hardcoded 10,000 depth constant
+go              | [json-iterator](https://github.com/json-iterator/go)        | 10002         | 20   KB       | configurable (`Config.MaxDepth`)
 D               | [`std.json`](https://dlang.org/phobos/std_json.html)        | 37373         | 74.7 KB       | segfaults
 C++             | [RapidJSON](http://rapidjson.org/)                          | 87289         | 175 KB        | segfaults
 Nim             | [json](https://nim-lang.org/docs/json.html)                 | 104750        | 209 KB        | segfaults
