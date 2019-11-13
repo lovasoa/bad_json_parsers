@@ -6,7 +6,7 @@ before_install:
   - cat /proc/meminfo
   - ulimit -a
 
-install: "/bin/true" # Install nothing by default
+install: "true" # Install nothing by default
 
 jobs:
   include:
