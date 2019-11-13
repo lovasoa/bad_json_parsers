@@ -147,7 +147,6 @@ jobs:
           packages:
             - postgresql-11
             - postgresql-client-11
-      install: echo '[]' | ./parser_postgresql.sh
       script: ./test_parser.sh ./parser_postgresql.sh
 
     - os: osx 
