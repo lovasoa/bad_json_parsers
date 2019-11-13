@@ -19,7 +19,10 @@ jobs:
       script: ./test_parser.sh python parser_python.py
 
     - language: ruby
-      script: ./test_parser.sh ruby parser_ruby.rb
+      install: gem install oj
+      script:
+        - ./test_parser.sh ruby parser_ruby.rb
+        - ./test_parser.sh ruby parser_ruby_oj.rb
 
     - language: java
       jdk: openjdk12
