@@ -140,6 +140,9 @@ jobs:
 
     - os: osx 
       osx_image: xcode11.2
+      before_install:
+        - vm_stat
+        - ulimit -a
       script:
         - cd parser_swift
         - xcodebuild
