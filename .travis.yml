@@ -138,6 +138,18 @@ jobs:
         - chmod +x ./jq-linux64
       script: ./test_parser.sh ./jq-linux64 .
 
+    - name: PostgreSQL
+      services:
+        - postgresql
+      addons:
+        postgresql: 11
+        apt:
+          packages:
+            - postgresql-11
+            - postgresql-client-11
+      install: echo '[]' | ./parser_postgresql.sh
+      script: ./test_parser.sh ./parser_postgresql.sh
+
     - os: osx 
       osx_image: xcode11.2
       before_install:
