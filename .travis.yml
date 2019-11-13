@@ -137,3 +137,10 @@ jobs:
         - wget 'https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64'
         - chmod +x ./jq-linux64
       script: ./test_parser.sh ./jq-linux64 .
+
+    - os: osx 
+      osx_image: xcode11.2
+      script:
+        - cd parser_swift
+        - xcodebuild
+        - ../test_parser.sh ./build/Release/parser_swift
