@@ -62,6 +62,7 @@ rust            | [serde\_json](https://docs.serde.rs/serde_json/)            | 
 shell           | [jq](https://stedolan.github.io/jq/)                        | 257           | 514 bytes     | undocumented
 php             | `json_decode`                                               | 512           | 1024 bytes    | configurable (`$depth`)
 perl            | [JSON::PP](https://perldoc.perl.org/JSON/PP.html)           | 513           | 1026 bytes    | configurable (`max_depth`)
+swift           | `JSONDecoder`                                               | 514           | 1028 bytes    | undocumented
 python3         | [json](https://docs.python.org/3/library/json.html)         | 994           | 2.0 KB        | configurable (`sys.setrecursionlimit`), undocumented
 C               | [jansson](https://jansson.readthedocs.io/)                  | 2049          | 4.0 KB        |
 javascript      | `JSON.parse`                                                | 5713          | 11.4 KB       |
