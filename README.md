@@ -36,14 +36,21 @@ This repository contains tools to measure the nesting limits of JSON parsers of 
 
 ## How to use
 
-This repository contains a script called [test_parser.sh](test_parser.sh) that takes a JSON parser and uses [binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm) to find the smallest JSON structure it fails to parse and print its nesting level.
+This repository contains a script called [test_parser.py](test_parser.py)
+that takes a JSON parser and uses [binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm)
+to find the smallest JSON structure it fails to parse and print its nesting level.
 
-The json parser must be a program that reads JSON on its standard input, and exits with a status of 0 if it managed to parse it and any other status if an error occurred.
+The json parser must be a program that reads JSON on its standard input,
+exits with a status of 0 if it managed to parse it and any other status if an error occurred.
 
 ## How it works
 
-[test_parser.sh](test_parser.sh) constructs json structures composed uniquely of nested arrays, and gives them to the program it tests. For instance, for a depth of 3, it builds the following json : `[[[]]]`. This allows to create a structure of only *2n* bytes that has *n* nesting levels.
-It uses [binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm) to find the smallest structure for which the program fails.
+[test_parser.py](test_parser.py) constructs json structures composed uniquely of nested arrays,
+and gives them to the program it tests.
+For instance, for a depth of 3, it builds the following json : `[[[]]]`.
+This allows to create a structure of only *2n* bytes that has *n* nesting levels.
+It uses [binary search](https://en.wikipedia.org/wiki/Binary_search_algorithm)
+to find the smallest structure for which the program fails.
 
 ## Results
 
