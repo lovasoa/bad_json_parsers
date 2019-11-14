@@ -1,3 +1,4 @@
+.idea/
 parser_nim
 # For parser_elixir
 parser_elixir/_build/
