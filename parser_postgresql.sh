@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-json=$(</dev/stdin)
+read -r json
 
 export ON_ERROR_STOP=on
 psql -c "select '$json'::json;"

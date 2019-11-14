@@ -21,8 +21,8 @@ jobs:
     - language: ruby
       install: gem install oj
       script:
-        - ./test_parser.py ruby parser_ruby.rb
-        - ./test_parser.py ruby parser_ruby_oj.rb
+        - ./test_parser.py ./parser_ruby.rb
+        - ./test_parser.py ./parser_ruby_oj.rb
 
     - language: java
       jdk: openjdk12
