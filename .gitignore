@@ -1,12 +1,2 @@
 .idea/
 parser_nim
-# For parser_elixir
-parser_elixir/_build/
-parser_elixir/cover/
-parser_elixir/deps/
-parser_elixir/doc/
-parser_elixir/.fetch
-parser_elixir/erl_crash.dump
-parser_elixir/*.ez
-parser_elixir/parser_elixir-*.tar
-parser_elixir/parser_elixir
