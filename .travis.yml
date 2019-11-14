@@ -12,17 +12,17 @@ jobs:
   include:
     - language: perl
       perl: ["5.30"]
-      script: ./test_parser.sh perl parser_perl.pl
+      script: ./test_parser.py perl parser_perl.pl
 
     - language: python
       python: 3.8
-      script: ./test_parser.sh python parser_python.py
+      script: ./test_parser.py python parser_python.py
 
     - language: ruby
       install: gem install oj
       script:
-        - ./test_parser.sh ruby parser_ruby.rb
-        - ./test_parser.sh ruby parser_ruby_oj.rb
+        - ./test_parser.py ruby parser_ruby.rb
+        - ./test_parser.py ruby parser_ruby_oj.rb
 
     - language: java
       jdk: openjdk12
@@ -30,36 +30,36 @@ jobs:
         - mvn -f parser-java-jackson/pom.xml clean install -DskipTests
         - mvn -f parser_java_gson/pom.xml clean compile assembly:single
       script:
-        - ./test_parser.sh java -jar parser-java-jackson/target/bad-parser-jackson-1.0-SNAPSHOT.jar
-        - ./test_parser.sh java -jar parser_java_gson/target/jsonparser-1-jar-with-dependencies.jar
+        - ./test_parser.py java -jar parser-java-jackson/target/bad-parser-jackson-1.0-SNAPSHOT.jar
+        - ./test_parser.py java -jar parser_java_gson/target/jsonparser-1-jar-with-dependencies.jar
       cache:
         directories:
           - $HOME/.m2
 
     - language: node_js
       node_js: "8"
-      script: ./test_parser.sh node parser_javascript.js
+      script: ./test_parser.py node parser_javascript.js
 
     - language: go
       install:
         - go build parser_go.go
         - go get github.com/json-iterator/go && go build parser_go_jsoniter.go
       script:
-        - ./test_parser.sh ./parser_go
-        - ./test_parser.sh ./parser_go_jsoniter
+        - ./test_parser.py ./parser_go
+        - ./test_parser.py ./parser_go_jsoniter
 
     - language: csharp
       mono: none
       dotnet: 3.0
       script:
-        - ./test_parser.sh dotnet run -p parser_dotnet
-        - ./test_parser.sh dotnet run -p parser_dotnet_system_text_json
+        - ./test_parser.py dotnet run -p parser_dotnet
+        - ./test_parser.py dotnet run -p parser_dotnet_system_text_json
   
     - language: c
       install: sudo apt-get -y install libjansson-dev
       script:
        - cd parser_c_jansson && make && cd ..
-       - ./test_parser.sh ./parser_c_jansson/parser_c_jansson
+       - ./test_parser.py ./parser_c_jansson/parser_c_jansson
 
     - language: cpp
       install:
@@ -67,13 +67,13 @@ jobs:
         - sudo apt-get -y install rapidjson-dev
       script:
         - cd parser_cpp && g++ -std=c++11 -O3 -flto -DNDEBUG parser_cpp.cpp -o parser_cpp
-        - ../test_parser.sh ./parser_cpp
+        - ../test_parser.py ./parser_cpp
         - cd $TRAVIS_BUILD_DIR/parser_cpp_rapidjson && g++ -O3 -flto parser_cpp_rapidjson.cpp -o parser_cpp_rapidjson
-        - ../test_parser.sh ./parser_cpp_rapidjson
+        - ../test_parser.py ./parser_cpp_rapidjson
  
     - language: php
       php: "7.1"
-      script: ./test_parser.sh php ./parser_php.php
+      script: ./test_parser.py php ./parser_php.php
 
     - language: haskell
       ghc: ["8.8"]
@@ -81,7 +81,7 @@ jobs:
       install:
         - cd parser_haskell
         - cabal install --only-dependencies
-      script: ../test_parser.sh cabal run
+      script: ../test_parser.py cabal run
       cache:
         directories:
           - $HOME/.cabal/packages
@@ -90,7 +90,7 @@ jobs:
 
     - language: rust
       install: cd parser_rust && cargo build --release && cd ..
-      script: ./test_parser.sh ./parser_rust/target/release/parser_rust
+      script: ./test_parser.py ./parser_rust/target/release/parser_rust
       cache:
         directories:
           - $TRAVIS_BUILD_DIR/parser_rust/target
@@ -104,7 +104,7 @@ jobs:
         - eval $(opam config env)
         - opam install --yes yojson ocamlfind
         - cd parser_ocaml_yojson && make && cd ..
-      script: ./test_parser.sh ./parser_ocaml_yojson/parser_ocaml
+      script: ./test_parser.py ./parser_ocaml_yojson/parser_ocaml
 
     - name: nim
       env: CHOOSENIM_NO_ANALYTICS=1
@@ -114,7 +114,7 @@ jobs:
         - choosenim stable
       script:
         - nim c -d:release parser_nim.nim
-        - ./test_parser.sh ./parser_nim
+        - ./test_parser.py ./parser_nim
       cache:
         directories:
           - $HOME/.nimble
@@ -122,7 +122,7 @@ jobs:
 
     - language: d
       install: dmd parser_d.d
-      script: ./test_parser.sh ./parser_d
+      script: ./test_parser.py ./parser_d
 
     - language: elixir
       elixir: 1.9.0
@@ -133,13 +133,13 @@ jobs:
         - mix deps.get
         - mix escript.build
         - cd ..
-        - ./test_parser.sh ./parser_elixir/parser_elixir
+        - ./test_parser.py ./parser_elixir/parser_elixir
 
     - name: jq
       install:
         - wget 'https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64'
         - chmod +x ./jq-linux64
-      script: ./test_parser.sh ./jq-linux64 .
+      script: ./test_parser.py ./jq-linux64 .
 
     - name: PostgreSQL
       services:
@@ -150,7 +150,7 @@ jobs:
           packages:
             - postgresql-11
             - postgresql-client-11
-      script: ./test_parser.sh ./parser_postgresql.sh
+      script: ./test_parser.py ./parser_postgresql.sh
 
     - os: osx 
       osx_image: xcode11.2
@@ -160,4 +160,4 @@ jobs:
       script:
         - cd parser_swift
         - xcodebuild
-        - ../test_parser.sh ./build/Release/parser_swift
+        - ../test_parser.py ./build/Release/parser_swift
