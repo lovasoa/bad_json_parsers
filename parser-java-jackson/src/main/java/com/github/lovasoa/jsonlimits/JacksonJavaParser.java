@@ -13,7 +13,7 @@ public class JacksonJavaParser {
 
     public static void main(String[] args) throws JsonProcessingException {
         String fullInput = SIN.next();
-        System.out.println("Full input: " + fullInput);
+        System.out.println("Full input size in characters:" + fullInput.length());
         JsonNode jsonTree = new ObjectMapper().readTree(fullInput);
         Objects.requireNonNull(jsonTree);
     }
