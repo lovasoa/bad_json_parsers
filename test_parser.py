@@ -55,7 +55,7 @@ def run_program(depth, log_output=False):
 
 
 def binary_search(f, start, end):
-    while not (end == start + 1):
+    while end != start + 1:
         middle = (start + end) // 2
         if f(middle):
             start = middle
