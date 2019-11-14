@@ -11,7 +11,7 @@ install: "true" # Install nothing by default
 jobs:
   include:
     - language: perl
-      perl: 5.30
+      perl: ["5.30"]
       script: ./test_parser.sh perl parser_perl.pl
 
     - language: python
@@ -76,7 +76,7 @@ jobs:
       script: ./test_parser.sh php ./parser_php.php
 
     - language: haskell
-      ghc: "8.8"
+      ghc: ["8.8"]
       cabal: "3.0"
       install:
         - cd parser_haskell
@@ -145,7 +145,7 @@ jobs:
       services:
         - postgresql
       addons:
-        postgresql: 11
+        postgresql: "11"
         apt:
           packages:
             - postgresql-11
