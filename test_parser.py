@@ -78,4 +78,7 @@ async def main():
 
 
 if __name__ == "__main__":
-    exit(asyncio.run(main()))
+    loop = asyncio.get_event_loop()
+    status = loop.run_until_complete(main())
+    loop.close()
+    exit(status)
