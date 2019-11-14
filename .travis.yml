@@ -10,8 +10,8 @@ install: "true" # Install nothing by default
 
 jobs:
   include:
-    - language: perl
-      perl: ["5.30"]
+    - name: perl
+      install: sudo apt-get -y install perl
       script: ./test_parser.py perl parser_perl.pl
 
     - language: python
