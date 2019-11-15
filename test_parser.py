@@ -24,7 +24,12 @@ log = logging.getLogger(__name__)
 
 
 def print_bytes(b, out):
-    getattr(out, 'buffer', out).write(b)
+    max_out_len = 5000
+    if len(b) > max_out_len:
+        b = b[:max_out_len // 2] + b'\n[...]\n' + b[-max_out_len // 2:]
+    buffer = getattr(out, 'buffer', out)
+    buffer.write(b)
+    buffer.flush()
 
 
 def deep_json_array(depth):
