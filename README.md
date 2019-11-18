@@ -63,31 +63,31 @@ Here are the results we found, sorted from least nesting allowed by default to t
 
 language        | json library                                                | nesting level | file size     | notes                         |
 ----------------| ----------------------------------------------------------- | ------------- | ------------- | ----
-C#              | [System.Text.Json](https://docs.microsoft.com/en-us/dotnet/api/system.text.json) | 65 | 130 bytes | configurable (`JsonSerializerOptions.MaxDepth`)
-ruby            | [json](https://rubygems.org/gems/json/versions/1.8.3)       | 101           | 202 bytes     | configurable (`:max_nesting`)
-rust            | [serde\_json](https://docs.serde.rs/serde_json/)            | 128           | 256 bytes     | disableable (`disable_recursion_limit`)
+C#              | [System.Text.Json](https://docs.microsoft.com/en-us/dotnet/api/system.text.json) | 65 | 130 bytes | configurable (`JsonSerializerOptions.MaxDepth`) *
+ruby            | [json](https://rubygems.org/gems/json/versions/1.8.3)       | 101           | 202 bytes     | configurable (`:max_nesting`) *
+rust            | [serde\_json](https://docs.serde.rs/serde_json/)            | 128           | 256 bytes     | disableable (`disable_recursion_limit`) *
 shell           | [jq](https://stedolan.github.io/jq/)                        | 257           | 514 bytes     | undocumented
-php             | `json_decode`                                               | 512           | 1024 bytes    | configurable (`$depth`)
-perl            | [JSON::PP](https://perldoc.perl.org/JSON/PP.html)           | 513           | 1026 bytes    | configurable (`max_depth`)
-swift           | `JSONDecoder`                                               | 514           | 1028 bytes    | undocumented
-python3         | [json](https://docs.python.org/3/library/json.html)         | 994           | 2.0 KB        | configurable (`sys.setrecursionlimit`), undocumented
+php             | `json_decode`                                               | 512           | 1.0 KB    | configurable (`$depth`) *
+perl            | [JSON::PP](https://perldoc.perl.org/JSON/PP.html)           | 513           | 1.0 KB    | configurable (`max_depth`) *
+swift           | `JSONDecoder`                                               | 514           | 1.0 KB        | undocumented
+python3         | [json](https://docs.python.org/3/library/json.html)         | 995           | 2.0 KB        | configurable (`sys.setrecursionlimit`) \*, undocumented
 C               | [jansson](https://jansson.readthedocs.io/)                  | 2049          | 4.0 KB        |
-javascript      | `JSON.parse`                                                | 5713          | 11.4 KB       |
-java            | [Jackson](https://github.com/FasterXML/jackson-core)        | 6373          | 13   KB       |
-java            | [Gson](https://github.com/google/gson)                      | 6901          | 14   KB       |
-go              | [json-iterator](https://github.com/json-iterator/go)        | 10002         | 20   KB       | configurable (`Config.MaxDepth`)
+javascript      | `JSON.parse`                                                | 5712          | 11.4 KB       | Node.js 8 LTS
+java            | [Gson](https://github.com/google/gson)                      | 6100          | 12   KB       |
+java            | [Jackson](https://github.com/FasterXML/jackson-core)        | 6577          | 13   KB       |
+go              | [json-iterator](https://github.com/json-iterator/go)        | 10002         | 20   KB       | configurable (`Config.MaxDepth`) \*
 PostgreSQL      | [json type](//postgresql.org/docs/10/datatype-json.html)    | 11887         | 23   KB       | configurable (`max_stack_depth`), undocumented
-D               | [`std.json`](https://dlang.org/phobos/std_json.html)        | 37373         | 74.7 KB       | segfaults
-C++             | [RapidJSON](http://rapidjson.org/)                          | 87289         | 175 KB        | segfaults
-Nim             | [json](https://nim-lang.org/docs/json.html)                 | 104750        | 209 KB        | segfaults
-OCaml           | [yojson](https://github.com/ocaml-community/yojson)         | 130391        | 261 KB        |
-go              | `encoding/json`                                             | 2581101       | 5.0 MiB       | goroutine stack exceeds 1000000000-byte limit
+D               | [`std.json`](https://dlang.org/phobos/std_json.html)        | 37370         | 74.7 KB       | segfaults
+C++             | [RapidJSON](http://rapidjson.org/)                          | 87266         | 175 KB        | segfaults
+Nim             | [json](https://nim-lang.org/docs/json.html)                 | 104769        | 209 KB        | segfaults
+OCaml           | [yojson](https://github.com/ocaml-community/yojson)         | 130380        | 260 KB        |
+go              | `encoding/json`                                             | 1973784       | 3.9 MiB       | fatal error, goroutine stack exceeds 1000000000-byte limit
 C++             | [JSON for Modern C++](https://github.com/nlohmann/json)     | ∞             | ∞             | segfault fixed in v3.7.2
 C#              | [Newtonsoft.Json](https://www.newtonsoft.com/json)          | ∞             | ∞             |
 ruby            | [Oj](https://github.com/ohler55/oj)                         | ∞             | ∞             |
 Haskell         | [Aeson](https://hackage.haskell.org/package/aeson)          | ∞             | ∞             |
 
-Note that *configurable* and *disableable* mean only that the default depth check inside the parser itself can be configured or disabled, not that the parser can be made to accept any nesting depth. When disabling the limit or increasing it too much, the parser will crash the calling program instead of returning a clean error. 
+\* Note that *configurable* and *disableable* mean only that the default depth check inside the parser itself can be configured or disabled, not that the parser can be made to accept any nesting depth. When disabling the limit or increasing it too much, the parser will crash the calling program instead of returning a clean error. 
 
 ## Remarks
 
