@@ -92,8 +92,4 @@ Haskell         | [Aeson](https://hackage.haskell.org/package/aeson)          | 
 ## Remarks
 
 I tried to test the most popular json library of each language. If you want to add a new language or a new library,
-feel free to open a pull request.
-
-All the parameters were left to their default values. In particular, the result
-for PHP is particular: `json_decode` accepts a `depth` parameter to configure
-the maximum depth of the object to be parsed.
+feel free to open a pull request. All the parameters were left to their default values.
