@@ -55,7 +55,7 @@ to find the smallest structure for which the program fails.
 ## Results
 
 The various implementations in this repository are continuously
-[tested by Tarvis CI](https://travis-ci.org/lovasoa/bad_json_parsers)
+[tested by Travis CI](https://travis-ci.org/lovasoa/bad_json_parsers)
 on a virtual machine running Ubuntu 18.04, with 8Gb of RAM,
 and a maximum stack size of 8.192 Mb.
 
